@@ -1,0 +1,545 @@
+#: import MDDropdownMenu kivymd.uix.menu.MDDropdownMenu
+<Screen1>:
+    MDNavigationLayout:
+        ScreenManager:
+            id: screen_mng
+            Screen:
+                name: 'main Screen'
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: 10
+                    size: root.width,root.height
+                    MDTopAppBar:
+                        title: 'Dashboard'
+                        md_bg_color: 1, 255/255, 3/255,1
+                        specific_text_color: .2, .01, .02, 1
+                        left_action_items: [['menu',lambda x: navbar.set_state('open')]]
+                        right_action_items: [[ 'dots-vertical',lambda x: navbar2.set_state('open')], [ 'chevron-down', lambda x: navbar2.set_state('close')],[ 'instagram', lambda x: app.callback_3()]]
+                    MDGridLayout:
+                        cols: 2
+                        spacing: 40
+                        MDFillRoundFlatIconButton:
+                            text: 'Open calendar'
+                            pos_hint: {'center_x': 0.5,'center_y': .8}
+                            icon: 'calendar'
+                            md_bg_color: 1,0,1,1
+                            on_release: app.show_date()
+
+                        MDFillRoundFlatIconButton:
+                            text: 'Open time'
+                            pos_hint: {'center_x': 0.5,'center_y': .5}
+                            icon: 'clock'
+                            md_bg_color: 1,0,1,1
+                            on_release: app.show_time()
+                        #Screen:
+                            #name: 'time'
+                        MDLabel:
+                            id: date
+                            text: ''
+                            pos_hint: {'center_x': 0.95,'center_y': 0.25}
+
+
+                    TwoLineAvatarListItem:
+                        text: 'Two line avatar list item'
+                        secondary_text: 'TEll us about your life'
+                        on_release: app.show_example_custom_bottom_sheet()
+
+                        ImageLeftWidget:
+                            source: 'C:\\Users\\USER\\Pictures\\funky10.jpg'
+
+                    ThreeLineAvatarListItem:
+                        text: 'Three line avatar list item'
+                        secondary_text: 'TEll us about your life'
+                        tertiary_text: 'Praise The Lord, Hallelujah'
+                        #Button:
+                            #text: 'click'
+
+                        ImageLeftWidget:
+                            source: 'C:\\Users\\USER\\Pictures\\family1.jpg'
+                    ThreeLineAvatarListItem:
+                        text: 'Three line avatar list item'
+                        secondary_text: 'Tell your problem to Christ'
+                        tertiary_text: 'Amen, Hallelujah'
+                        #on_release: screen_mng = 'play_me'
+
+                        ImageLeftWidget:
+                            source: 'data/logo/kivy-icon-128.png'
+
+
+                    MDScreen:
+
+                        MDFloatingActionButtonSpeedDial:
+                            data: app.data
+                            rotation_root_button: True
+
+                    MDBottomNavigation:
+                        panel_color: 1, 255/255, 3/255,1
+                        MDBottomNavigationItem:
+                            name: 'screen1'
+                            text: 'javascript'
+                            icon: 'language-javascript'
+                            #on_release: screen_mng = 'play'
+                            MDLabel:
+                                text: 'Learn Javascript'
+                                halign: 'center'
+
+
+                        MDBottomNavigationItem:
+                            name: 'screen2'
+                            text: 'facebook1'
+                            icon: 'facebook'
+                            on_tab_press: print('TAb Down')
+
+                            MDLabel:
+                                text: 'Login To Facebook'
+                                halign: 'center'
+
+                        MDBottomNavigationItem:
+                            name: 'screen3'
+                            text: 'Twitter '
+                            icon: 'twitter'
+                            on_tab_release: screen_mng.current = 'play_me'
+                            MDLabel:
+                                text: 'Share Your tweets'
+                                halign: 'center'
+
+            Screen:
+                name: 'play_me'
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: 30
+                    Video:
+                        id: vid
+                        source: 'C:\\Users\\USER\\Videos\\The boondocks\\The Boondocks S01E02.mp4'
+                    MDRoundFlatButton:
+                        text: 'Tap To Start'
+                        pos_hint: {'center_x': .5}
+                        on_release:
+                            setattr(vid, 'source','C:\\Users\\USER\\Videos\\The boondocks\\The Boondocks S01E02.mp4')
+                            setattr(vid, 'state','play')
+                    Label:
+                        text: 'Create something terrific'
+
+            Screen:
+                name: 'first screen'
+                MyImg:
+            Screen:
+                name: 'tabs'
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: 10
+                    size: root.width,root.height
+                    MDTopAppBar:
+                        title: 'Dashboard'
+                        md_bg_color: 1, 255/255, 3/255,1
+                        specific_text_color: .2, .01, .02, 1
+                        left_action_items: [['menu',lambda x: app.callback()]]
+                        right_action_items: [[ 'dots-vertical',lambda x: app.callback()]]
+                    MyTabs:
+            Screen:
+                name: 'play'
+                MDGridLayout:
+                    cols: 1
+                    MDGridLayout:
+                        cols: 2
+                        MDLabel:
+                            text: 'Name'
+                        TextInput:
+                            multiline: True
+                        MDLabel:
+                            text: 'Name'
+                        MDTextFieldRect:
+                            multiline: True
+                        MDLabel:
+                            text: 'Name'
+                        MDTextFieldRect:
+                            multiline: True
+                    Button:
+                        text: 'SUBMIT'
+                    Button:
+                        text: 'UPDATE'
+                    Button:
+                        text: 'DELETE'
+                    Button:
+                        text: 'CHECK RECORDS'
+                Widget:
+
+            Screen:
+                name: 'accordion'
+                BoxLayout:
+                    orientation: 'vertical'
+                    size: root.width,root.height
+                    padding: 30
+                    spacing: 20
+
+                    Accordion:
+                        orientation: 'vertical'
+                        allow_stretch: True
+
+                        AccordionItem:
+                            title: 'Picture1'
+                            Label:
+                                text: ' Image Loading'
+                                font_size: 35
+                        AccordionItem:
+                            title: 'Picture2'
+                            Image:
+                                source: 'C:\\Users\\USER\\Pictures\\funky10.jpg'
+                        AccordionItem:
+                            title: 'Picture3'
+                            Image:
+                                source:  'C:\\Users\\USER\\PycharmProjects\\kivytake2\\family1.jpg'
+                        AccordionItem:
+                            title: 'Picture4'
+                            Image:
+                                source: 'C:\\Users\\USER\\Pictures\\funky2.jpg'
+        MDNavigationDrawer:
+            id: navbar2
+            opening_transition: 'in_bounce'
+            opening_time: .3
+            BoxLayout:
+                orientation: 'vertical'
+                padding: 20
+                spacing: 10
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: 30
+                    Video:
+                        id: vid
+                        source: 'C:\\Users\\USER\\Videos\\The boondocks\\The Boondocks S01E02.mp4'
+                    MDRoundFlatButton:
+                        text: 'Tap To Start'
+                        pos_hint: {'center_x': .5}
+                        on_release:
+                            setattr(vid, 'source','C:\\Users\\USER\\Videos\\The boondocks\\The Boondocks S01E02.mp4')
+                             setattr(vid, 'state','play')
+                    MDRoundFlatButton:
+                        text: 'Tap To Stop'
+                        pos_hint: {'center_x': .5}
+                        on_release:
+                            setattr(vid, 'source','C:\\Users\\USER\\Videos\\The boondocks\\The Boondocks S01E02.mp4')
+                            setattr(vid, 'state','stop')
+                    MDLabel:
+                        text: 'My Darling'
+
+        MDNavigationDrawer:
+            id: navbar
+            opening_transition: 'in_bounce'
+            opening_time: .3
+
+            BoxLayout:
+                orientation: 'vertical'
+                padding: 20
+                spacing: 5
+                size: root.width,root.height
+                Image:
+                    source: 'data/logo/kivy-icon-128.png'
+                    size_hint_y: None
+                    height: '200dp'
+                MDFillRoundFlatIconButton:
+                    text: 'Home'
+                    icon: 'home'
+                    md_bg_color: 1,0,1,1
+                    size_hint_x: 1
+                    on_release:
+                        screen_mng.current = 'main Screen'
+                MDFillRoundFlatIconButton:
+                    text: 'My Files'
+                    icon: 'folder'
+                    md_bg_color: 1,0,1,1
+                    size_hint_x: 1
+                    on_release:
+                        screen_mng.current = 'tabs'
+                MDFillRoundFlatIconButton:
+                    text: 'search'
+                    icon: 'magnify'
+                    md_bg_color: 1,0,1,1
+                    size_hint_x: 1
+                    on_release: screen_mng.current ='first screen'
+                MDFillRoundFlatIconButton:
+                    text: 'phone'
+                    icon: 'phone'
+                    md_bg_color: 1,0,1,1
+                    size_hint_x: 1
+                    on_release: screen_mng.current ='accordion'
+                MDFillRoundFlatIconButton:
+                    text: 'Dowmloads'
+                    icon: 'download'
+                    md_bg_color: 1,0,1,1
+                    size_hint_x: 1
+                    on_release: screen_mng.current ='play'
+                MDFillRoundFlatIconButton:
+                    text: 'About us'
+                    icon: 'upload'
+                    md_bg_color: 1,0,1,1
+                    size_hint_x: 1
+                MDFillRoundFlatIconButton:
+                    text: 'Connect with Us On internet'
+                    icon: 'google'
+                    md_bg_color: 1,0,1,1
+                    size_hint_x: 1
+                MDFillRoundFlatIconButton:
+                    text: 'Email_us'
+                    icon: 'email'
+                    md_bg_color: 1,0,1,1
+                    size_hint_x: 1
+                Widget:
+
+<MyImg>
+    id:DisplayOnScreen
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width,root.height
+        padding: 30
+        spacing: 20
+
+        Image:
+            id:MyImage
+            source: ''
+
+        FileChooserIconView:
+            id:filechooser
+            on_selection:DisplayOnScreen.selected(filechooser.selection)
+
+<MyTabs>
+    do_default_tab: False
+
+    TabbedPanelItem:
+        text: 'First Tab'
+
+        MyImg:
+        #MyCarousel:
+    TabbedPanelItem:
+        text: 'Second Tab'
+        BoxLayout:
+            orientation: 'horizontal'
+            size: root.width,root.height
+            #Label:
+                #text: ' why aint u working?'
+            #Button:
+                #text: 'click'
+
+            BoxLayout:
+                orientation: 'vertical'
+                size: root.width,root.height
+                padding: 30
+                spacing: 20
+
+                Accordion:
+                    orientation: 'vertical'
+                    allow_stretch: True
+
+                    AccordionItem:
+                        title: 'Picture1'
+                        Label:
+                            text: ' Image Loading'
+                            font_size: 35
+                    AccordionItem:
+                        title: 'Picture2'
+                        Image:
+                            source: 'C:\\Users\\USER\\Pictures\\funky10.jpg'
+                    AccordionItem:
+                        title: 'Picture3'
+                        Image:
+                            source:  'C:\\Users\\USER\\PycharmProjects\\kivytake2\\family1.jpg'
+                    AccordionItem:
+                        title: 'Picture4'
+                        Image:
+                            source: 'C:\\Users\\USER\\Pictures\\funky2.jpg'
+
+
+    TabbedPanelItem:
+        text: 'third tab'
+        BoxLayout:
+            orientation: 'vertical'
+            size: root.width, root.height
+
+
+            Label:
+                text: 'Select Pizza Toppings'
+                font_size: 35
+
+            Carousel:
+                direction: 'right'
+                allow_stretch:True
+                keep_ratio:False
+
+                Image:
+                    source: 'C:\\Users\\USER\\Pictures\\funky10.jpg'
+                Image:
+                    source: 'C:\\Users\\USER\\PycharmProjects\\kivytake2\\family1.jpg'
+                Image:
+                    source: 'C:\\Users\\USER\\Pictures\\funky2.jpg'
+
+            GridLayout:
+                cols:2
+
+                Label:
+                    text: 'Pepperoni'
+                    font_size: 32
+                CheckBox:
+                    group: 'pizza toppings'
+                    on_active: root.tick(self,self.active, 'Pepperoni')
+                Label:
+                    text: 'Cheese'
+                    font_size: 32
+                CheckBox:
+                    group: 'pizza toppings'
+                    on_active: root.tick(self,self.active, 'Cheese')
+
+                Label:
+                    text: 'Fish'
+                    font_size: 32
+                CheckBox:
+                    group: 'pizza toppings'
+                    on_active: root.tick(self,self.active,  'Fish')
+            Label:
+                id: output
+                #text: 'Pepperoni'
+
+
+    TabbedPanelItem:
+        text: 'fourth tab'
+        BoxLayout:
+            orientation: 'vertical'
+            size: root.width, root.height
+
+
+            Label:
+                id: mylbl
+                text: 'Select The Shoe You would Like to Purchase'
+                font_size: 35
+
+            Button:
+                text: 'press'
+                #font_size: 30
+                size_hint: .20,.08
+                pos_hint: {'center_x': .5}
+                on_press: root.hello_on()
+                on_release: root.hello_off()
+                background_color: 0,0,0,0
+                background_normal: ''
+
+                Image:
+                    id: img
+                    source: 'C:\\Users\\USER\\PycharmProjects\\kivytake2\\family1.jpg'
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+
+<ContentCustomSheet@MDBoxLayout>:
+    size_hint_y: None
+    height: '750dp'
+    RelativeLayout:
+        ElementCard:
+            pos_hint: { 'x': .05, 'center_y':1.1}
+            Image:
+                source: 'C:\\Users\\USER\\PycharmProjects\\kivytake2\\family1.jpg'
+    MDLabel:
+        text: 'GOD REIGNS'
+<ElementCard@MDCard>:
+    image: ''
+    rate: ''
+    price: ''
+    orientation: 'vertical'
+    #on_release: app.show_example_custom_bottom_sheet(root.image,root.price,root.rate)
+    size_hint_x: .5
+    size_hint_y: None
+    height: dp(150)
+    padding: dp(10)
+    radius: dp(15)
+
+    MDBoxLayout:
+        size_hint_y: .5
+        height: dp(25)
+        Image:
+            source: root.image
+        MDIcon:
+            icon: 'star'
+            theme_text_color: 'Custom'
+            text_color: 1,1,0,1
+        MDLabel:
+            text: root.rate
+    MDLabel:
+        text: root.price
+
+<MyImg>
+    id:DisplayOnScreen
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width,root.height
+        padding: 30
+        spacing: 20
+
+        Image:
+            id:MyImage
+            source: ''
+
+        FileChooserListView:
+            id:filechooser
+            on_selection:DisplayOnScreen.selected(filechooser.selection)
+
+<MyCarousel>
+
+
+    #BoxLayout:
+        #orientation: 'horizontal'
+    size: root.width,root.height
+        #padding: 30
+        #spacing: 30
+    GridLayout:
+        cols: 3
+        rows: 3
+
+        GridLayout:
+            row:1
+
+
+            Label:
+                text: 'Select Pizza Toppings'
+                font_size: 35
+
+        BoxLayout:
+            orientation: 'vertical'
+
+
+            Carousel:
+                direction: 'right'
+                allow_stretch:True
+                keep_ratio:False
+
+                Image:
+                    source: 'C:\\Users\\USER\\Pictures\\funky10.jpg'
+                Image:
+                    source: 'C:\\Users\\USER\\PycharmProjects\\kivytake2\\family1.jpg'
+                Image:
+                    source: 'C:\\Users\\USER\\Pictures\\funky2.jpg'
+
+        GridLayout:
+            cols:2
+
+            Label:
+                text: 'Pepperoni'
+                font_size: 32
+            CheckBox:
+                group: 'pizza toppings'
+                on_active: root.tick(self,self.active, 'Pepperoni')
+            Label:
+                text: 'Cheese'
+                font_size: 32
+            CheckBox:
+                group: 'pizza toppings'
+                on_active: root.tick(self,self.active, 'Cheese')
+
+            Label:
+                text: 'Fish'
+                font_size: 32
+            CheckBox:
+                group: 'pizza toppings'
+                on_active: root.tick(self,self.active,  'Fish')
+        Label:
+            id: output
+            #text: 'Pepperoni'
+
+
+
